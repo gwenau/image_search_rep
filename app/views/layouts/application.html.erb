@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ImageSearch</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%#= yield %>
+<h1>Search Image</h1>
+  <script>
+    (function() {
+      var cx = '003846610913805178311:gydxsvhryt4';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+          '//www.google.com/cse/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  <gcse:search></gcse:search>
+<hr />
+  <% @colours.each do |c| %>
+    <div class="colour" style="width: 50px;
+    height: 50px;
+    border: 1px black solid; background-color: <%= c.pick %>;">
+      <%= c.pick  %>
+    </div>
+  <% end %>
+
+</body>
+</html>
